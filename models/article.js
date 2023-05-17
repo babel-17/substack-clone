@@ -35,15 +35,7 @@ const articleSchema = new Schema({
   }],
   nowShowing: { type: Boolean, default: true },
   reviews: [reviewSchema]
-},
-  //googleId: {
-    //type: String,
-    //required: true
-  //},
-  //email: String,
-  //avatar: String
-//}, 
-{
+},{
   timestamps: true
 });
 
