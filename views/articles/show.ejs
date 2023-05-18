@@ -30,6 +30,8 @@
 </form>
 
 <br><br><h2>Reviews</h2>
+<% if (user) { %>
+  <a href="/articles/<%= article._id %>/reviews/new">Add Review</a>
 <form id="add-review-form" method="POST"
   action="/articles/<%= article._id %>/reviews">
   <label>Review:</label>
@@ -44,14 +46,17 @@
   </select>
   <input type="submit" value="Add Review">
 </form>
+<% } %>
 
 <% if (article.reviews.length) { %>
   <table>
     <thead>
       <tr>
+        <th>Users</th>
         <th>Date</th>
         <th>Review</th>
         <th>Rating</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -61,10 +66,18 @@
         <!-- Accumulate the total rating -->
         <% total += r.rating %>
         <tr>
+          <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
           <!-- .toLocaleDateString() provides a more friendly date format -->
           <td><%= r.createdAt.toLocaleDateString() %></td>
           <td><%= r.content %></td>
           <td><%= r.rating %></td>
+          <td>
+            <% if (user?._id.equals(r.user)) { %>
+              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
         </tr>
       <% }); %>
       <!-- Add a row to display the avg AFTER the forEach iteration  -->

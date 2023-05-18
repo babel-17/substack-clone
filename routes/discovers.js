@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const discoversCtrl = require('../controllers/discovers');
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-// This router is mounted to a "starts with" path of '/'
-
-router.get('/discovers/new', discoversCtrl.new);
-router.post('/discovers', discoversCtrl.create);
-router.post('/articles/:id/discovers', discoversCtrl.addToCast);
+router.get('/discovers/new', ensureLoggedIn, discoversCtrl.new);
+router.post('/discovers', ensureLoggedIn, discoversCtrl.create);
+router.post('/articles/:id/discovers', ensureLoggedIn, discoversCtrl.addToCast);
 
 module.exports = router;
