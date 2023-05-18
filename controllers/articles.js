@@ -1,39 +1,62 @@
 const Article = require('../models/article');
 
+const index = async (req, res) => {
+  const articles = await Article.find({})
+  res.render('articles/index', {articles, title: 'home'})
+}
+
+const newArticle = (req, res) => {
+  res.render('articles/new', { article: new Article() })
+}
+
+const edit = async (req, res) => {
+  const article = await Article.findById(req.params.id)
+  res.render('articles/edit', { article: article })
+}
+
+const show = async (req, res) => {
+  const article = await Article.findOne({ slug: req.params.slug })
+  if (article == null) res.redirect('/')
+  res.render('articles/show', { article: article })
+}
+
+const create = async (req, res, next) => {
+  req.article = new Article()
+  next()
+}
+
+const update = async (req, res, next) => {
+  req.article = await Article.findById(req.params.id)
+  next()
+}
+
+const deleteArticle = async (req, res) => {
+  await Article.findByIdAndDelete(req.params.id)
+  res.redirect('/')
+}
+
+const saveArticleAndRedirect = (path) => {
+  return async (req, res) => {
+    let article = req.article
+    article.title = req.body.title
+    article.description = req.body.description
+    article.markdown = req.body.markdown
+    try {
+      article = await article.save()
+      res.redirect(`/articles/${article.slug}`)
+    } catch (e) {
+      res.render(`articles/${path}`, { article: article })
+    }
+  }
+}
+
 module.exports = {
   index,
-  show,
   new: newArticle,
-  create
+  edit,
+  show,
+  create,
+  update,
+  delete: deleteArticle,
+  saveArticleAndRedirect
 };
-
-
-async function index(req, res) {
-  const articles = await Article.find({});
-  res.render('articles/index', { title: 'All Articles', articles });
-}
-
-async function show(req, res) {
-  
-  const article = await Article.findById(req.params.id).populate('cast');
-  const discovers = await Discover.find({ _id: { $nin: article.cast } }).sort('name');
-  res.render('articles/show', { title: 'Article Detail', article, performers });
-}
-
-function newArticle(req, res) {
-  res.render('articles/new', { title: 'Add Article', errorMsg: '' });
-}
-
-async function create(req, res) {
-  req.body.nowShowing = !!req.body.nowShowing;
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key];
-  }
-  try {
-    const article = await Article.create(req.body);
-    res.redirect(`/articles/${article._id}`);
-  } catch (err) {
-    console.log(err);
-    res.render('articles/new', { errorMsg: err.message });
-  }
-}
