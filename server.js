@@ -13,12 +13,11 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var articlesRouter = require('./routes/articles');
-const reviewsRouter = require('./routes/reviews');
+const reviewsRouter = require('./routes/authors');
 const discoversRouter = require('./routes/discovers');
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -45,8 +44,8 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/articles', articlesRouter);
-app.use('/', reviewsRouter);
-app.use('/', discoversRouter);
+// app.use('/authors', authorsRouter);
+// app.use('/discovers', discoversRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

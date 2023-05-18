@@ -1,29 +1,24 @@
 <%- include('../partials/header') %>
 
-<h2>Enter a New Article</h2>
-<form action="/articles" method="POST">
-  <label>Title:
-    <input type="text" name="title">
-  </label><br>
-  <label>Release Year:
-    <input type="number" name="releaseYear">
-  </label><br>
-  <label>MPAA Rating
-    <select name="mpaaRating">
-      <option value="G">G</option>
-      <option value="PG">PG</option>
-      <option value="PG-13">PG-13</option>
-      <option value="R">R</option>
-    </select>
-  </label><br>
-  <label>Cast (separate actors with commas):
-    <input type="text" name="cast">
-  </label><br>
-  <label>Now Showing:
-    <input type="checkbox" name="nowShowing" checked>
-  </label><br>
-  <button type="submit">Add Article</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4">New Article</h1>
+
+    <form action="/articles" method="POST">
+      <%- include('_form_fields') %>
+    </form>
+  </div>
+</body>
+</html>
 <p><%= errorMsg %></p>
 
 <%- include('../partials/footer') %>

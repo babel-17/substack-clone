@@ -1,50 +1,46 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const reviewSchema = new Schema({
-  content: {
+
+const articleSchema = new Schema({
+  title: {
     type: String,
     required: true
   },
-  rating: {
-    type: Number,
-    min: 1,
-    max: 5,
-    default: 5
+  description: {
+    type: String
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
+  markdown: {
+    type: String,
     required: true
-  }, 
-  userName: String,
-  userAvatar: String
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  sanitizedHtml: {
+    type: String,
+    required: true
+  }
 }, {
   timestamps: true
 });
 
-const articleSchema = new Schema({
-  title: { type: String, required: true },
-  releaseYear: {
-    type: Number,
-    default: function() {
-      return new Date().getFullYear();
-    },
-    min: 1927
-  },
-  mpaaRating: {
-    type: String,
-    enum: ['G', 'PG', 'PG-13', 'R']
-  },
-  cast: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Performer'
-  }],
-  nowShowing: { type: Boolean, default: true },
-  reviews: [reviewSchema]
-},{
-  timestamps: true
-});
+articleSchema.pre('validate', function(next) {
+  if (this.title) {
+    this.slug = slugify(this.title, { lower: true, strict: true })
+  }
+
+  if (this.markdown) {
+    this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
+  }
+
+  next()
+})
 
 module.exports = mongoose.model('Article', articleSchema);
-
