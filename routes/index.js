@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'substack-clone' });
+  res.render('index');
 });
 
 // Google OAuth login route
