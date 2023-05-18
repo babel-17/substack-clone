@@ -1,5 +1,4 @@
 const Article = require('../models/article');
-const Discover = require('../models/discover');
 
 module.exports = {
   index,
