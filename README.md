@@ -47,9 +47,11 @@ Session Management: Provided by Express sessions, ensuring seamless user experie
 Substack-Clone is more than a blogging app, it's where you go to write new articles, engage with your audience, and get paid for your words by your community. 
 Getting started is as easy as loging-in via google, writing your first piece, and posting. 
 
-https://substack-clone.herokuapp.com/
+click here to stack-yo-subs ---> https://substack-clone.herokuapp.com/
+
+click here to check my planning ---> https://trello.com/b/ooEhvoLy/substack-clone
     
-❄️ Icebox Features
+❄️ Icebox/Next Steps
 
 This application is continuously evolving and we're excited to share some of the potential features we're considering for future development. The "Icebox" is where we store our ideas for enhancements and expansions that could make this platform even better.
 
