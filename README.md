@@ -1,4 +1,4 @@
-# substack-clone: : Your Own Community Hub
+# substack-clone: Your Own Community Hub
 Developed by Oz Chicas on May 19, 2023
 
 ## Description 
