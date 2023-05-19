@@ -14,10 +14,12 @@ App Preview
 
 <img width="1141" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/53e6078a-5157-4ce3-ac6a-7b1024aeacb1.png">
     
-    
+
+
 <img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/d03f0172-153f-44d0-9b65-7f5078ad3ee5.png">
 
-    
+
+
 <img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/e602e17a-e880-4a09-a9a6-ba4a065a9fb4.png">
 
 
