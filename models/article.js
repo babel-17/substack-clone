@@ -2,6 +2,14 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+  content: {
+    type: String, 
+    required: true
+  } 
+}, {
+  timestamps: true
+});
 
 const articleSchema = new Schema({
   title: {
@@ -15,6 +23,7 @@ const articleSchema = new Schema({
     type: String,
     required: true
   },
+  comments: [commentSchema]
 }, {
   timestamps: true
 });
