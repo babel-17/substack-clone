@@ -52,8 +52,13 @@ https://substack-clone.herokuapp.com/
 This application is continuously evolving and we're excited to share some of the potential features we're considering for future development. The "Icebox" is where we store our ideas for enhancements and expansions that could make this platform even better.
 
 -Newsletter Integration: Allow your users to subscribe to a newsletter, receiving updates when new articles are posted.
+
 -Rich Text Editor: Enhance the article creation experience with a rich text editor, providing more formatting options and control.
+
 -Social Media Sharing: Implement social sharing buttons to increase the visibility of your articles.
+
 -Like and Bookmark: Add like and bookmark features to let readers show their appreciation for an article and save their favorites for later.
+
 -Tags and Categories: Implement a tagging system and categories to help organize articles and make content discovery easier.
+
 -Analytics: Implement an analytics system for tracking and displaying reader engagement metrics. 
