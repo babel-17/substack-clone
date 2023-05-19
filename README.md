@@ -8,18 +8,19 @@ Developed by Oz Chicas on May 19, 2023
 
 App Preview
 
-    <img width="1118" alt="Screenshot 2023-05-18 at 11.38.10 PM<img width="1141" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/53e6078a-5157-4ce3-ac6a-7b1024aeacb1.png">
+<img width="1118" alt="Screenshot 2023-05-18 at 11.38.10 PM<img width="1141" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/53e6078a-5157-4ce3-ac6a-7b1024aeacb1.png">
     
     
-    <img width="1118" alt="Screenshot 2023-05-18 at 11.41.27 PM<img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/d03f0172-153f-44d0-9b65-7f5078ad3ee5.png">
+<img width="1118" alt="Screenshot 2023-05-18 at 11.41.27 PM<img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/d03f0172-153f-44d0-9b65-7f5078ad3ee5.png">
 
     
-    <img width="1118" alt="Screenshot 2023-05-18 at 11.42.01 PM<img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/e602e17a-e880-4a09-a9a6-ba4a065a9fb4.png">
+<img width="1118" alt="Screenshot 2023-05-18 at 11.42.01 PM<img width="1192" alt="image" src="https://github.com/babel-17/substack-clone/assets/35887068/e602e17a-e880-4a09-a9a6-ba4a065a9fb4.png">
 
 
 🚀 Features
 
-    Engage with Your Audience: Just like Substack, you can create, edit, delete, and publish articles with ease.
+    Engage with Your Audience: Just like Substack, you can create, edit, delete, 
+    and publish articles with ease.
     User Authentication: Powered by Passport.js for secure logins and peace of mind.
     Session Management: Provided by Express sessions, ensuring seamless user experience.
   
